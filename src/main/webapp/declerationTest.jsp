@@ -1,0 +1,22 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: matt
+  Date: 8/20/18
+  Time: 3:52 PM
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%!
+    String makeItLower(String data) {
+        return data.toLowerCase();
+    }
+%>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <p>Lower case HELLO WORLD: <%= makeItLower("HELLO WORLD")%></p>
+
+</body>
+</html>
