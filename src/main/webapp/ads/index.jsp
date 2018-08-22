@@ -5,15 +5,16 @@
     <jsp:include page="/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+    <jsp:include page="../partials/pageStyling.jsp" ></jsp:include>
 </head>
 <body>
 <jsp:include page="/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1 class="adsHeading">Here Are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
+        <div class="col-md-6 adDiv">
             <h2>${ad.title}</h2>
             <p>${ad.description}</p>
         </div>
