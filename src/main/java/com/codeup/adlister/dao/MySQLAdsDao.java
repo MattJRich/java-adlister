@@ -72,4 +72,28 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    @Override
+    public List<Ad> getListOfAds(long id) throws SQLException {
+        DriverManager.registerDriver(new Driver());
+        connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost/adLister_db?serverTimezone=UTC&useSSL=false",
+                "ad_user",
+                "px"
+        );
+        List<Ad> userAds = new ArrayList<>();
+        String query = "SELECT * FROM ads WHERE user_id = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setLong(1, id);
+        ResultSet rowsOfAdss = ps.executeQuery();
+        while (rowsOfAdss.next()) {
+            Ad newAdd = new Ad(
+                    rowsOfAdss.getString("title"),
+                    rowsOfAdss.getString("description")
+            );
+            userAds.add(newAdd);
+        }
+        return userAds;
+
+    }
 }

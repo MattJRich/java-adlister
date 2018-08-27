@@ -48,6 +48,8 @@ public class MySQLUsersDao implements Users {
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);
+        } catch (SQLIntegrityConstraintViolationException e) {
+
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
