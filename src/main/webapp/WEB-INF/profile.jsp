@@ -13,7 +13,7 @@
         <h1>Welcome, ${sessionScope.user.username}!</h1>
         <p>${sessionScope.user.email}</p>
         <hr>
-        <h3>${sessionScope.user.username} Ads: </h3>
+        <h3>${sessionScope.user.username}'s Ads: </h3>
         <c:forEach var="ad" items="${sessionScope.userAds}" >
             <div>
                 <h5>${ad.title}</h5>

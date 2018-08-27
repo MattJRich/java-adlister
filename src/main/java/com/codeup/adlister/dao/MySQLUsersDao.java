@@ -49,9 +49,10 @@ public class MySQLUsersDao implements Users {
             rs.next();
             return rs.getLong(1);
         } catch (SQLIntegrityConstraintViolationException e) {
-
+            throw new RuntimeException(e);
         } catch (SQLException e) {
-            throw new RuntimeException("Error creating new user", e);
+            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

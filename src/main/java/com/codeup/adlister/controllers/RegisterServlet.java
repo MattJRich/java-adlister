@@ -18,7 +18,8 @@ public class RegisterServlet extends HttpServlet {
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        try {
 
             String username = request.getParameter("username");
             String email = request.getParameter("email");
@@ -38,13 +39,11 @@ public class RegisterServlet extends HttpServlet {
 
             // create and save a new user
             User user = new User(username, email, Password.hash(password));
-            try {
-                DaoFactory.getUsersDao().insert(user);
-            } catch (RuntimeException e) {
-               request.getRequestDispatcher("/WEB-INF/register.jsp");
-
-            }
+            DaoFactory.getUsersDao().insert(user);
             response.sendRedirect("/login");
+        } catch (RuntimeException e) {
+            request.getRequestDispatcher("/WEB-INF/registerFail.jsp").forward(request, response);
+        }
 
 
     }
