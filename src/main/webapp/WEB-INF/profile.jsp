@@ -10,6 +10,7 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <p>${sessionScope.user.email}</p>
     </div>
 
 </body>

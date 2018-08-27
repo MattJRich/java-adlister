@@ -13,9 +13,10 @@ public class MySQLUsersDao implements Users {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    "jdbc:mysql://localhost/adLister_db?serverTimezone=UTC&useSSL=false",
+                    "ad_user",
+                    "px"
+
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
