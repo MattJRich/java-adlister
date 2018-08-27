@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: matt
-  Date: 8/25/18
-  Time: 4:37 PM
+  Date: 8/26/18
+  Time: 9:12 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,9 +11,12 @@
     <title>Title</title>
 </head>
 <body>
-    <button><a href="/login">Login</a></button>
-    <button><a href="/register">Register</a></button>
-    <button><a href="/searchUser">Search User</a></button>
-
+<form action="/ads/create" method="post">
+    <label>Title</label>
+    <input type="text" name="title">
+    <label>Description</label>
+    <input type="text" name="description">
+    <button>submit</button>
+</form>
 </body>
 </html>
